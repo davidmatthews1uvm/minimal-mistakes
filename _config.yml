@@ -52,9 +52,9 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
-search                   : true, false (default)
-search_full_content      : true, false (default)
-search_provider          : # lunr (default), algolia, google
+search                   : true #, false (default)
+search_full_content      : true #, false (default)
+search_provider          : lunr # lunr (default), algolia, google
 algolia:
   application_id         : # YOUR_APPLICATION_ID
   index_name             : # YOUR_INDEX_NAME
@@ -98,7 +98,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "TODO: BIO"
   location         : "MA"
-  email            :
+  email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -266,6 +266,13 @@ compress_html:
   ignore:
     envs: development
 
+collections:
+  recipes:
+    output: true
+    permalink: /:collection/:path/
+  photos:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
@@ -297,3 +304,17 @@ defaults:
       type: category
     values:
       comments: false
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: single
+      author_profile: true
+      share: true
+  - scope:
+      path: ""
+      type: photos
+    values:
+      layout: single
+      author_profile: true
+      share: true
